@@ -6,11 +6,14 @@
 
 <div id="clientes">
   <% @clientes.each do |cliente| %>
-    <%= render cliente %>
-    <p>
-      <%= link_to "Show this cliente", cliente %>
-    </p>
+    <% if cliente.id.present? %>
+      <%= render cliente %>
+      <p>
+        <%= link_to "Show this cliente", cliente %>
+      </p>
+    <% else %>
+      <p>Cliente inválido ou não encontrado.</p>
+    <% end %>
   <% end %>
 </div>
-
 <%= link_to "New cliente", new_cliente_path %>
